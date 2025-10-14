@@ -1,0 +1,100 @@
+/* Stage */
+.story {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 20px 120px;
+    color: #e8e9f0;
+    line-height: 1.72;
+    background: radial-gradient(1200px 600px at 50% -220px, #20263a 0%, #131625 58%, #0b0d16 100%);
+}
+
+/* Common paragraph */
+.para {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+    transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+    margin: 18px 0;
+    white-space: pre-wrap;
+}
+
+.para.show { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+/* 1 */
+.fx-plead { letter-spacing: 0.4px; }
+.fx-plead.show { animation: plead-shake 900ms cubic-bezier(.36,.07,.19,.97) 1, plead-blink 1600ms ease-in-out 1; }
+@keyframes plead-shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-3px); }
+    40%, 60% { transform: translateX(3px); }
+}
+@keyframes plead-blink { 0%, 100% { text-shadow: none; } 50% { text-shadow: 0 0 10px rgba(255, 240, 200, .14); } }
+
+/* 2 */
+.fx-dizzy { filter: blur(1px) saturate(.95); }
+.fx-dizzy.show { animation: dizzy 1400ms ease-in-out both; }
+@keyframes dizzy { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(2px) rotate(.25deg); } 100% { transform: translateY(0) rotate(0deg); } }
+
+/* 3 */
+.fx-hate { filter: saturate(.85); }
+.fx-hate.show { text-shadow: 0 0 0 rgba(0,0,0,0); animation: hate 900ms ease both; }
+@keyframes hate { 0% { text-shadow: 0 0 0 rgba(0,0,0,0); } 100% { text-shadow: 0 0 14px rgba(220, 60, 60, .18); } }
+
+/* 4 */
+.fx-glitch.show { position: relative; }
+.fx-glitch.show::after, .fx-glitch.show::before { content: attr(data-glitch); }
+.fx-glitch.show::before, .fx-glitch.show::after { position: absolute; left: 0; right: 0; clip-path: inset(0 0 90% 0); opacity: .07; }
+.fx-glitch.show::before { transform: translateX(-1px); }
+.fx-glitch.show::after  { transform: translateX(1px); }
+
+/* 5 */
+.fx-pulse.show { animation: pulse 900ms ease-out 1; }
+@keyframes pulse { 0% { transform: scale(1); } 30% { transform: scale(1.02); } 60% { transform: scale(1); } 85% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+/* 6 */
+.fx-guilt { position: relative; }
+.fx-guilt.show::after { content: ""; position: absolute; inset: -6px; pointer-events: none; background: radial-gradient(600px 240px at 50% -60px, transparent 0%, transparent 55%, rgba(0,0,0,.25) 100%); }
+
+/* 7 */
+.fx-cold { filter: saturate(.9) hue-rotate(-8deg); }
+
+/* 8 */
+.fx-zoom.show { animation: zoomin 1400ms ease both; }
+@keyframes zoomin { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(0) scale(1.015); } }
+
+/* 9 */
+.fx-rage.show { animation: rage 520ms cubic-bezier(.36,.07,.19,.97) 1; }
+@keyframes rage { 10%, 90% { transform: translateX(-1.5px); } 20%, 80% { transform: translateX(3px); } 30%, 50%, 70% { transform: translateX(-5px); } 40%, 60% { transform: translateX(5px); } }
+
+/* 10 */
+.fx-pride.show { animation: pride 900ms ease both; }
+@keyframes pride { 0% { filter: contrast(1) brightness(1); } 60% { filter: contrast(1.08) brightness(1.04); } 100% { filter: contrast(1) brightness(1); } }
+
+/* 11 */
+.fx-hunger { filter: brightness(.96) saturate(.9); }
+
+/* 12 */
+.fx-fall.show { animation: fall 1000ms cubic-bezier(.2,.7,.2,1) both; }
+@keyframes fall { 0% { transform: translateY(0); } 100% { transform: translateY(6px); } }
+
+/* 13 */
+.fx-crack.show { animation: crack 600ms ease both; }
+@keyframes crack { 0% { letter-spacing: 0; } 40% { letter-spacing: 1.2px; } 100% { letter-spacing: .2px; } }
+
+/* 14 */
+.fx-flash.show { animation: flash 420ms ease-out 1; }
+@keyframes flash { 0% { text-shadow: none; } 30% { text-shadow: 0 0 18px rgba(255,255,255,.4); } 100% { text-shadow: 0 0 0 rgba(0,0,0,0); } }
+
+/* Extensions (optional) */
+.fx-confess.show { animation: contrastUp 900ms ease both; }
+@keyframes contrastUp { 0% { filter: contrast(1); } 100% { filter: contrast(1.06); } }
+.fx-still { opacity: .92; }
+.fx-grain.show { animation: grain 1200ms steps(2) 1; }
+@keyframes grain { 0%, 100% { filter: contrast(1); } 50% { filter: contrast(1.08); } }
+.fx-soft { filter: contrast(.98) saturate(.98); }
+.fx-iron.show { animation: iron 900ms ease both; }
+@keyframes iron { 0% { letter-spacing: 0; } 100% { letter-spacing: .3px; } }
+.fx-empty { opacity: .85; }
+
+
