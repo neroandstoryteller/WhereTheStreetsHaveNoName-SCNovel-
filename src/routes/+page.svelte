@@ -1,71 +1,54 @@
 <script lang="ts">
-    const novels = [
-        { id: "paradox", title: "서천고에서의 글" },
-        { id: 2, title: "동곡고에서의 글" },
-        { id: 3, title: "세 번째 묶음" },
-        { id: 4, title: "네 번째 묶음" }
+    const links = [
+        { href: '/city', label: 'City' },
+        { href: '/woods', label: 'Woods' }
     ];
+    let { data } = $props();
 </script>
 
-<h1 class="title">Novel</h1>
+<h1 class="title">Where The Streets Have No Name</h1>
 
-<section class="list">
-    {#each novels as n}
-        <a class="item" href={"/novel/" + n.id} aria-label={n.title}>
-            <span class="item-title">{n.title}</span>
-        </a>
+<nav class="nav">
+    {#each links as l}
+        <a class="nav-btn" href={l.href} aria-label={l.label}>{l.label}</a>
     {/each}
-    </section>
+    </nav>
 
 <style>
     .title
     {
-        position: absolute;
-        left: 24px;
-        top: 92px;
-        margin: 0;
-        font-size: clamp(20px, 3.4vw, 28px);
-        font-weight: 700;
-        color: #202020;
-        letter-spacing: 0.2px;
+        margin: 28px 0 16px 0;
+        text-align: center;
+        font-weight: 800;
+        font-size: clamp(22px, 5vw, 34px);
+        letter-spacing: .4px;
+        color: #222;
     }
 
-    .list
+    .nav
     {
-        width: 100%;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         gap: 14px;
-        margin-top: 180px;
+        padding: 20px;
     }
 
-    .item
+    .nav-btn
     {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 88px;
-        padding: 18px;
-        border: 1.5px solid #cfcfcf;
-        border-radius: 14px;
-        background-color: #ffffff;
+        min-width: 140px;
+        padding: 14px 18px;
+        border-radius: 12px;
         text-decoration: none;
-        transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease, background-color 120ms ease;
+        color: #fff;
+        background: linear-gradient(180deg, #4c7fff, #3461d8);
+        box-shadow: 0 8px 18px rgba(52,97,216,.25);
+        transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
     }
 
-    .item:hover
-    {
-        transform: translateY(-1px);
-        border-color: #bdbdbd;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-        background-color: #fcfcfc;
-    }
-
-    .item-title
-    {
-        font-size: 15px;
-        font-weight: 600;
-        color: #333333;
-        letter-spacing: 0.2px;
-    }
+    .nav-btn:hover { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 12px 24px rgba(52,97,216,.28); }
+    .nav-btn:active { transform: translateY(0); filter: brightness(.98); }
 </style>
+
